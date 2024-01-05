@@ -105,9 +105,9 @@
       taskItem.className = 'task-item';
       taskItem.innerHTML = `
         <span>${taskText}</span>
-        <div>
-          <button class="btn btn-success complete-btn">Complete</button>
-          <button class="btn btn-danger delete-btn">Delete</button>
+        <div class="row justify-content-start mx-3">
+          <button class="btn btn-success complete-btn m-2">Selesai</button>
+          <button class="btn btn-danger delete-btn m-2">Hapus</button>
         </div>
       `;
       taskList.appendChild(taskItem);
@@ -123,11 +123,10 @@
       taskItem.classList.toggle('completed');
       updateTaskCount();
     }
-
     function deleteAllTasks() {
-      const completedTasks = document.querySelectorAll('.task-item.completed');
-      completedTasks.forEach(taskItem => taskItem.remove());
-      updateTaskCount();
+        const allTasks = document.querySelectorAll('.task-item');
+        allTasks.forEach(taskItem => taskItem.remove());
+        updateTaskCount();
     }
 
     function updateTaskCount() {
@@ -140,7 +139,7 @@
 
     function checkCompletion(remainingTasks) {
       if (remainingTasks === 0) {
-        alert('All tasks completed! Good job!');
+        alert('Semua Task Terselesaikan! Kerja Bagus!');
       }
     }
   });
